@@ -1,0 +1,48 @@
+name: 探店编导
+repo: bangwozuo/local-content-zh
+legacy_name: 探店短视频编导
+version: 0.2.0
+asset_type: prompt-only
+stage: P0
+complexity: M（W5 需连接器，其余 S）
+group: 本地生活商家
+runtime_dependencies: none
+api_key_required: false
+demand_ids:
+  - D01
+  - D21
+
+workflows:
+  - name: 每日热点选题
+    id: de_local_01_wf01
+  - name: 探店脚本生成
+    id: de_local_01_wf02
+  - name: 口播文案+分镜
+    id: de_local_01_wf03
+  - name: 封面标题生成
+    id: de_local_01_wf04
+  - name: 发布日历与复盘
+    id: de_local_01_wf05
+
+skills:
+  - id: shortvideo-script-generate
+    name: 短视频脚本生成
+    family: 
+  - id: local-hotspot-track
+    name: 本地热点追踪
+    family: 
+  - id: groupbuy-attach-copy
+    name: 团购挂载文案
+    family: 
+  - id: multi-platform-spec-adapt
+    name: 多平台规格适配
+    family: 
+  - id: aigc-label-compliance
+    name: AIGC 标识合规
+    family: 
+
+compliance:
+  ai_label_required: true
+  human_review_required: true
+  forbidden_words_check: true
+  official_api_only: true

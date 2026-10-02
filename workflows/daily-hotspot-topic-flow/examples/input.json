@@ -1,0 +1,12 @@
+{
+  "city": "成都",
+  "category": "火锅",
+  "candidates": [
+    {"title": "老板把毛肚免费续到凌晨2点的老店", "source": "小红书本地生活", "heat_48h": 88000, "same_city_videos": 8, "match": 0.9, "hours_since": 6},
+    {"title": "国庆去哪吃？成都火锅节10月1日开幕", "source": "抖音同城热榜", "heat_48h": 88000, "same_city_videos": 60, "match": 0.85, "hours_since": 40},
+    {"title": "七夕火锅店情侣套餐预订火了", "source": "小红书本地生活", "heat_48h": 41000, "same_city_videos": 25, "match": 0.8, "hours_since": 100},
+    {"title": "玉林巷子里人均50的苍蝇馆子火锅", "source": "小红书本地生活", "heat_48h": 36000, "same_city_videos": 45, "match": 0.9, "hours_since": 30},
+    {"title": "春熙路新开的市井火锅，排队2小时也要吃", "source": "抖音同城热榜", "heat_48h": 128000, "same_city_videos": 260, "match": 0.95, "hours_since": 20},
+    {"title": "上个月爆火的旋转火锅现在凉凉了", "source": "大众点评热门", "heat_48h": 15000, "same_city_videos": 310, "match": 0.5, "hours_since": 240}
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "workflow_id": "de_local_01_wf05",
+  "name": "发布日历与复审",
+  "type": "composite",
+  "dag": ["local-hotspot-track", "multi-platform-spec-adapt", "aigc-label-compliance", "slot_assign", "human_release"],
+  "input": {
+    "type": "object",
+    "required": ["week_start", "contents"],
+    "properties": {
+      "week_start": { "type": "string", "description": "周一日期 YYYY-MM-DD（非周一拒绝）" },
+      "festival_days": {
+        "type": "array",
+        "description": "节点日历：date/name/window（节点前后窗口天数）",
+        "items": {
+          "type": "object",
+          "properties": {
+            "date": { "type": "string" },
+            "name": { "type": "string" },
+            "window": { "type": "array", "items": { "type": "number" } }
+          }
+        }
+      },
+      "contents": {
+        "type": "array",
+        "description": "周内容清单",
+        "items": {
+          "type": "object",
+          "required": ["id", "title", "platform", "review_status"],
+          "properties": {
+            "id": { "type": "string" },
+            "title": { "type": "string" },
+            "platform": { "type": "string", "description": "抖音/小红书/视频号/B站" },
+            "review_status": { "type": "string", "description": "passed/pending/failed，非 passed 不入历" },
+            "node_hint": { "type": "string", "description": "关联节点名，非空则优先排节点日" },
+            "priority": { "type": "string", "description": "高/中/低，高优先占晚高峰" }
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["calendar", "blocked", "unfilled"],
+    "properties": {
+      "calendar": { "type": "array", "description": "7 天 × 槽位：日期/槽位/平台/内容/ID" },
+      "blocked": { "type": "array", "description": "复审拦下清单与原因" },
+      "unfilled": { "type": "array", "description": "槽位未排清单与补排建议" },
+      "artifacts": { "type": "array", "description": "out/发布日历.xlsx、out/publish_calendar_flow.json" }
+    }
+  },
+  "scripts": ["scripts/run_flow.py"],
+  "constraints": {
+    "max_input_length": 20000,
+    "forbidden_words": ["最好吃", "第一", "100%"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

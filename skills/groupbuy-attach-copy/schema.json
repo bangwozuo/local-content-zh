@@ -1,0 +1,58 @@
+{
+  "skill_id": "de_local_01_sk03",
+  "name": "团购挂载文案",
+  "type": "atomic",
+  "input": {
+    "type": "object",
+    "required": ["store_name", "deal_name", "price", "highlights"],
+    "properties": {
+      "store_name": { "type": "string", "description": "门店名" },
+      "deal_name": { "type": "string", "description": "套餐名与内容（含菜品明细与数量）" },
+      "price": { "type": "number", "description": "团购售价（元）" },
+      "list_price_basis": { "type": "string", "description": "划线价依据：菜单/收银截图，须逐项加总可复核；无依据则不写划线价" },
+      "highlights": { "type": "array", "items": { "type": "string" }, "description": "真实卖点 2-4 条，须能拍出画面" },
+      "rules": { "type": "array", "items": { "type": "string" }, "description": "使用规则：有效期/时段/限购/预约/附加费/叠加" },
+      "platform": { "type": "string", "description": "投放平台，默认抖音团购" }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["copy", "basis_list", "risk_notes"],
+    "properties": {
+      "copy": {
+        "type": "object",
+        "description": "四件套：标题(≤20字)/卖点3条(各≤25字)/价格表述(菜单价¥X｜团购¥Y)/使用规则6项 + 探店合作标注位"
+      },
+      "basis_list": {
+        "type": "array",
+        "description": "依据清单：表述 → 依据材料 → 状态",
+        "items": {
+          "type": "object",
+          "properties": {
+            "表述": { "type": "string" },
+            "依据材料": { "type": "string" },
+            "状态": { "type": "string" }
+          }
+        }
+      },
+      "risk_notes": {
+        "type": "array",
+        "description": "驳回风险提示：原写法 → 风险 → 改法",
+        "items": {
+          "type": "object",
+          "properties": {
+            "原写法": { "type": "string" },
+            "风险": { "type": "string" },
+            "改法": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "constraints": {
+    "max_input_length": 5000,
+    "forbidden_words": ["最好吃", "全网最低价", "第一", "100%", "稳赚"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "workflow_id": "de_local_01_wf04",
+  "name": "封面标题生成",
+  "type": "composite",
+  "dag": ["shortvideo-script-generate", "multi-platform-spec-adapt", "aigc-label-compliance", "score_rank", "human_review"],
+  "input": {
+    "type": "object",
+    "required": ["store_name", "search_words", "platforms"],
+    "properties": {
+      "store_name": { "type": "string" },
+      "search_words": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "搜索词表（城市/商圈/品类/价格词），决定搜索流量命中"
+      },
+      "platforms": {
+        "type": "object",
+        "description": "平台 → {candidates: [标题候选 ≥3 条/平台]}",
+        "additionalProperties": {
+          "type": "object",
+          "properties": {
+            "candidates": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["rows", "recommends", "issues"],
+    "properties": {
+      "rows": {
+        "type": "array",
+        "description": "候选打分：字数/搜索词命中/数字锚点/钩子类型/得分/判定"
+      },
+      "recommends": {
+        "type": "array",
+        "description": "每平台 Top2 推荐 + 封面规格"
+      },
+      "issues": { "type": "array", "description": "红线候选与整改方向" },
+      "artifacts": { "type": "array", "description": "out/封面标题矩阵.xlsx、out/cover_title_flow.json" }
+    }
+  },
+  "scripts": ["scripts/run_flow.py"],
+  "constraints": {
+    "max_input_length": 10000,
+    "forbidden_words": ["最好吃", "第一", "100%"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

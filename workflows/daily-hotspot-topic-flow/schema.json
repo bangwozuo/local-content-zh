@@ -1,0 +1,50 @@
+{
+  "workflow_id": "de_local_01_wf01",
+  "name": "每日热点选题",
+  "type": "composite",
+  "dag": ["local-hotspot-track", "shortvideo-script-generate", "human_confirm"],
+  "input": {
+    "type": "object",
+    "required": ["city", "category", "candidates"],
+    "properties": {
+      "city": { "type": "string", "description": "门店所在城市" },
+      "category": { "type": "string", "description": "门店品类" },
+      "candidates": {
+        "type": "array",
+        "description": "候选热点清单（可从同城热榜手动粘贴）",
+        "items": {
+          "type": "object",
+          "required": ["title", "heat_48h", "same_city_videos", "match", "hours_since"],
+          "properties": {
+            "title": { "type": "string" },
+            "source": { "type": "string" },
+            "heat_48h": { "type": "number", "description": "近48h互动量" },
+            "same_city_videos": { "type": "number", "description": "同城同类视频条数" },
+            "match": { "type": "number", "description": "匹配度 0-1" },
+            "hours_since": { "type": "number", "description": "距发布小时数" }
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["summary", "plan", "rows"],
+    "properties": {
+      "summary": { "type": "object", "description": "候选数/入选数/城市/品类" },
+      "plan": {
+        "type": "array",
+        "description": "Top3 选题卡：选题/级别/总分/钩子类型建议/时长预算/发布建议/合规提醒"
+      },
+      "rows": { "type": "array", "description": "全部候选评分明细" },
+      "artifacts": { "type": "array", "description": "out/每日选题推送.docx、out/选题评分明细.xlsx、out/daily_topic_flow.json" }
+    }
+  },
+  "scripts": ["scripts/run_flow.py"],
+  "constraints": {
+    "max_input_length": 20000,
+    "forbidden_words": ["最好吃", "第一", "100%"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

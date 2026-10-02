@@ -1,0 +1,78 @@
+{
+  "skill_id": "de_local_01_sk02",
+  "name": "本地热点追踪",
+  "type": "atomic",
+  "input": {
+    "type": "object",
+    "required": ["city", "category", "candidates"],
+    "properties": {
+      "city": {
+        "type": "string",
+        "description": "门店所在城市"
+      },
+      "category": {
+        "type": "string",
+        "description": "门店品类（火锅/烘焙/健身房等）"
+      },
+      "window_days": {
+        "type": "number",
+        "description": "回看窗口天数，默认 3"
+      },
+      "candidates": {
+        "type": "array",
+        "description": "候选热点清单（可从同城热榜手动粘贴）",
+        "items": {
+          "type": "object",
+          "required": ["title", "heat_48h", "same_city_videos", "match", "hours_since"],
+          "properties": {
+            "title": { "type": "string", "description": "热点标题" },
+            "source": { "type": "string", "description": "来源：抖音同城热榜/小红书本地生活/大众点评热门/节点日历/新店开业" },
+            "heat_48h": { "type": "number", "description": "近 48h 互动量（赞+评+藏）" },
+            "same_city_videos": { "type": "number", "description": "同城同类视频已发条数（竞争度）" },
+            "match": { "type": "number", "description": "与门店品类/客单价/位置匹配度 0-1（人工标定）" },
+            "hours_since": { "type": "number", "description": "距热点发布的小时数" }
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["summary", "rows"],
+    "properties": {
+      "summary": {
+        "type": "object",
+        "description": "候选条数、A/B/C 级计数、本周建议拍摄 Top3"
+      },
+      "rows": {
+        "type": "array",
+        "description": "选题榜（按总分降序）",
+        "items": {
+          "type": "object",
+          "properties": {
+            "选题": { "type": "string" },
+            "来源": { "type": "string" },
+            "热度分(48h)": { "type": "number" },
+            "竞争度分": { "type": "number" },
+            "匹配度分": { "type": "number" },
+            "时效系数": { "type": "number" },
+            "总分": { "type": "number" },
+            "级别": { "type": "string", "description": "A 追 / B 观察 / C 放弃 / C 淘汰" },
+            "备注": { "type": "string" }
+          }
+        }
+      },
+      "artifacts": {
+        "type": "array",
+        "description": "产物文件：out/选题评估榜.xlsx、out/选题得分.png、out/hotspot_track.json"
+      }
+    }
+  },
+  "scripts": ["scripts/hotspot_track.py"],
+  "constraints": {
+    "max_input_length": 20000,
+    "forbidden_words": ["最好吃", "全网最低价", "100%"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

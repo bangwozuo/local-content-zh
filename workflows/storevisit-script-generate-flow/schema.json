@@ -1,0 +1,51 @@
+{
+  "workflow_id": "de_local_01_wf02",
+  "name": "探店脚本生成",
+  "type": "composite",
+  "dag": ["shortvideo-script-generate", "multi-platform-spec-adapt", "aigc-label-compliance", "human_review"],
+  "input": {
+    "type": "object",
+    "required": ["store_name", "shots", "copy_text"],
+    "properties": {
+      "store_name": { "type": "string" },
+      "category": { "type": "string" },
+      "target_duration_s": { "type": "number", "description": "默认 60" },
+      "shots": {
+        "type": "array",
+        "description": "分镜草案：no/dur_s(秒)/words(口播字数)/desc(画面)",
+        "items": {
+          "type": "object",
+          "required": ["no", "dur_s", "words", "desc"],
+          "properties": {
+            "no": { "type": "number" },
+            "dur_s": { "type": "number" },
+            "words": { "type": "number", "description": "口播字数，B-roll 纯画面镜头为 0" },
+            "desc": { "type": "string" }
+          }
+        }
+      },
+      "titles": { "type": "object", "description": "各平台标题候选：平台→标题" },
+      "platforms": { "type": "array", "items": { "type": "string" } },
+      "copy_text": { "type": "string", "description": "文案全文，用于合规词表扫描" },
+      "ai_involved": { "type": "array", "items": { "type": "string" } },
+      "business_type": { "type": "string", "description": "自费/置换/付费挂车/付费不挂车" }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["verdict", "issues"],
+    "properties": {
+      "verdict": { "type": "string", "description": "通过/可进人工终审/打回重改" },
+      "issues": { "type": "array", "description": "问题清单（含具体整改数字）" },
+      "total_duration": { "type": "number", "description": "分镜合计秒数" },
+      "artifacts": { "type": "array", "description": "out/拍摄脚本包.docx、out/分镜校验表.xlsx、out/storevisit_flow.json" }
+    }
+  },
+  "scripts": ["scripts/run_flow.py"],
+  "constraints": {
+    "max_input_length": 20000,
+    "forbidden_words": ["最好吃", "第一", "100%"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

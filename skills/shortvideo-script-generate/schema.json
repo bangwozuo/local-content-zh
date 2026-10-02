@@ -1,0 +1,58 @@
+{
+  "skill_id": "de_local_01_sk01",
+  "name": "短视频脚本生成",
+  "type": "atomic",
+  "input": {
+    "type": "object",
+    "required": ["store_name", "category", "highlights", "price_per_head"],
+    "properties": {
+      "store_name": { "type": "string", "description": "门店名" },
+      "category": { "type": "string", "description": "品类" },
+      "highlights": { "type": "array", "items": { "type": "string" }, "description": "真实亮点（招牌菜/工艺/环境，须实地确认）" },
+      "price_per_head": { "type": "number", "description": "人均价（缺失时列清单索要，不估算）" },
+      "deals": { "type": "string", "description": "团购套餐与优惠，挂车必填；划线价须写明依据" },
+      "duration_s": { "type": "number", "description": "目标时长秒，默认 60" },
+      "platform": { "type": "string", "description": "投放平台，默认抖音" }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["hook_options", "script_text", "shot_list", "shooting_checklist"],
+    "properties": {
+      "hook_options": {
+        "type": "array",
+        "description": "3 个 A/B 钩子：台词 + 类型（价格反差/稀缺排队/提问式/过程展示）+ 配套首镜头 + 留人逻辑"
+      },
+      "script_text": {
+        "type": "string",
+        "description": "五段式脚本正文（0-3s/3-25s/25-45s/45-55s/55-60s），附总字数与语速"
+      },
+      "shot_list": {
+        "type": "array",
+        "description": "六字段分镜表：时间/景别/运镜/画面内容/台词字幕/收音要点；时长合计=目标时长",
+        "items": {
+          "type": "object",
+          "properties": {
+            "时间": { "type": "string" },
+            "景别": { "type": "string" },
+            "运镜": { "type": "string" },
+            "画面内容": { "type": "string" },
+            "台词/字幕": { "type": "string" },
+            "收音要点": { "type": "string" }
+          }
+        }
+      },
+      "shooting_checklist": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "拍摄清单：菜品顺序/灯光机位/收音方案/店家配合项/价格依据留存"
+      }
+    }
+  },
+  "constraints": {
+    "max_input_length": 5000,
+    "forbidden_words": ["最好吃", "第一", "100%", "天花板"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

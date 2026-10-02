@@ -1,0 +1,10 @@
+{
+  "verdict": "可进人工终审",
+  "red": 0,
+  "issues": [
+    "🔵｜含 AI 成分：发布时开启平台 AI 声明，AI 封面须画面内标识"
+  ],
+  "total_duration": 60,
+  "generated_at": "2026-09-30 17:06:13",
+  "note": "S1-S3 确定性校验为脚本输出；台词创作由各步模型按 prompt.txt 完成"
+}

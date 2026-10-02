@@ -1,0 +1,45 @@
+{
+  "workflow_id": "de_local_01_wf03",
+  "name": "口播文案+分镜",
+  "type": "composite",
+  "dag": ["shortvideo-script-generate", "voiceover_storyboard_check", "multi-platform-spec-adapt", "human_review"],
+  "input": {
+    "type": "object",
+    "required": ["store_name", "target_duration_s", "segments"],
+    "properties": {
+      "store_name": { "type": "string" },
+      "target_duration_s": { "type": "number", "description": "目标时长，45/60 常用" },
+      "platforms": { "type": "array", "items": { "type": "string" }, "description": "默认抖音" },
+      "segments": {
+        "type": "array",
+        "description": "逐段口播稿",
+        "items": {
+          "type": "object",
+          "required": ["seg", "dur_s", "line"],
+          "properties": {
+            "seg": { "type": "string", "description": "钩子/场景与菜品/亮点与价格/团购引导/结尾互动" },
+            "dur_s": { "type": "number" },
+            "line": { "type": "string", "description": "台词原文；B-roll 纯画面段留空字符串" }
+          }
+        }
+      }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["verdict", "rows", "share"],
+    "properties": {
+      "verdict": { "type": "string", "description": "通过/需微调/打回重改" },
+      "rows": { "type": "array", "description": "逐段校验：时间轴/时长/字数/语速/判定/说明" },
+      "share": { "type": "array", "description": "五段占比 vs 推荐区间（按目标等比缩放，±3s）" },
+      "artifacts": { "type": "array", "description": "out/分镜口播校验表.xlsx、out/分镜时长分布.png、out/voiceover_flow.json" }
+    }
+  },
+  "scripts": ["scripts/run_flow.py"],
+  "constraints": {
+    "max_input_length": 20000,
+    "forbidden_words": ["最好吃", "第一", "100%"],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "week_start": "2026-09-28",
+  "festival_days": [{"date": "2026-10-01", "name": "国庆", "window": [-2, 1]}],
+  "contents": [
+    {"id": "C1", "title": "毛肚免费续的老店", "platform": "抖音", "review_status": "passed", "node_hint": "", "priority": "高"},
+    {"id": "C2", "title": "国庆火锅节逛吃攻略", "platform": "抖音", "review_status": "passed", "node_hint": "国庆", "priority": "高"},
+    {"id": "C3", "title": "玉林苍蝇馆子合集", "platform": "小红书", "review_status": "passed", "node_hint": "", "priority": "中"},
+    {"id": "C4", "title": "带爸妈吃老火锅", "platform": "视频号", "review_status": "pending", "node_hint": "", "priority": "中"},
+    {"id": "C5", "title": "周末探店 vlog", "platform": "小红书", "review_status": "passed", "node_hint": "", "priority": "低"},
+    {"id": "C6", "title": "旋转火锅避雷", "platform": "B站", "review_status": "failed", "node_hint": "", "priority": "低"}
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "skill_id": "de_local_01_sk05",
+  "name": "AIGC 标识合规",
+  "type": "atomic",
+  "input": {
+    "type": "object",
+    "required": ["content_text", "platform", "ai_involved", "business_type"],
+    "properties": {
+      "content_text": { "type": "string", "description": "待审文案全文（标题+口播+评论区置顶）" },
+      "platform": { "type": "string", "description": "抖音/小红书/视频号/B站" },
+      "ai_involved": {
+        "type": "array",
+        "items": { "type": "string", "enum": ["无", "AI写稿", "AI配音", "AI封面", "AI剪辑"] },
+        "description": "AI 成分清单"
+      },
+      "business_type": { "type": "string", "description": "自费/置换（免费餐）/付费挂车/付费不挂车" },
+      "has_deal_link": { "type": "boolean", "description": "是否挂团购链接" }
+    }
+  },
+  "output": {
+    "type": "object",
+    "required": ["verdict", "issues", "need_material"],
+    "properties": {
+      "verdict": {
+        "type": "object",
+        "description": "AI 成分/商业性质/红线·警告·提示计数/放行判定（红线0且警告≤2→可进人工终审）"
+      },
+      "issues": {
+        "type": "array",
+        "description": "问题清单：级别/原文片段/命中规则/依据/整改动作",
+        "items": {
+          "type": "object",
+          "properties": {
+            "级别": { "type": "string", "description": "🔴红线/🟡警告/🔵提示" },
+            "原文片段": { "type": "string" },
+            "命中规则": { "type": "string" },
+            "依据": { "type": "string" },
+            "整改动作": { "type": "string" }
+          }
+        }
+      },
+      "need_material": {
+        "type": "array",
+        "description": "需补充材料：取号小票/菜单截图/成交记录",
+        "items": {
+          "type": "object",
+          "properties": {
+            "表述": { "type": "string" },
+            "需提供": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "constraints": {
+    "max_input_length": 8000,
+    "forbidden_words": [],
+    "ai_label_required": true,
+    "human_review_required": true
+  }
+}
