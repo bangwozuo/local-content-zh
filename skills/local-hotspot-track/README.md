@@ -7,6 +7,8 @@
 
 ![真实执行](docs/assets/run-terminal.png)
 
+![演示视频](docs/assets/demo.mp4)
+
 *上图来自真实执行（`python scripts/hotspot_track.py --demo`）：8 条候选热点 → A 级 2 / B 级 2 / C 级 4，Top1「毛肚免费续到凌晨 2 点的老店」81.0 分（低竞争 + 高匹配 + 6h 新热点）。*
 
 ![选题得分 Top10](out/选题得分.png)

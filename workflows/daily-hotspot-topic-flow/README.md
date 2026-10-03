@@ -7,6 +7,8 @@
 
 ![真实执行](docs/assets/run-terminal.png)
 
+![演示视频](docs/assets/demo.mp4)
+
 *上图来自真实执行（`python scripts/run_flow.py --demo`）：成都/火锅 6 条候选 → 入选 3 条（A 级 2 条优先），Top1「毛肚免费续到凌晨 2 点的老店」87.0 分，附钩子类型、时长预算与发布槽位。*
 
 ---

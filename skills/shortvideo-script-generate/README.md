@@ -7,6 +7,8 @@
 
 ![输出预览](docs/assets/run-terminal.png)
 
+![演示视频](docs/assets/demo.mp4)
+
 *上图是本技能对 `examples/input.json` 的实跑交付（`examples/output.md`）：全文 296 字、语速 4.9 字/秒，9 镜分镜合计 60s，与目标时长逐秒对齐。*
 
 ---

@@ -7,6 +7,8 @@
 
 ![真实执行](docs/assets/run-terminal.png)
 
+![演示视频](docs/assets/demo.mp4)
+
 *上图来自真实执行（`python scripts/run_flow.py --demo`）：《玉林陈记老火锅》9 镜分镜合计 60s 配平达标、3 平台标题全部过规格、合规命中仅 1 项 AI 标识提示，结论「可进人工终审」。*
 
 ---
