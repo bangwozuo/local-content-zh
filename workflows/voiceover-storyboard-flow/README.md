@@ -7,7 +7,7 @@
 
 ![真实执行](docs/assets/run-terminal.png)
 
-🎬 **[▶ 观看演示视频](docs/assets/demo.mp4)** — 四幕检测叙事：业务钩子 → 真实执行 → 检查项逐条亮灯 → 交付物
+🎬 **[▶ 观看演示视频（在线播放）](https://cdn.jsdelivr.net/gh/bangwozuo/local-content-zh@main/workflows/voiceover-storyboard-flow/docs/assets/demo.mp4) · [GitHub 页](https://github.com/bangwozuo/local-content-zh/blob/main/workflows/voiceover-storyboard-flow/docs/assets/demo.mp4)** — 四幕检测叙事：业务钩子 → 真实执行 → 检查项逐条亮灯 → 交付物
 
 *上图来自真实执行（`python scripts/run_flow.py --demo`）：45s 面包店样例 5 段合计 45s，抓出 2 个台词问题——钩子 18 字 >15 字上限（🔴）、团购引导 2.22 字/秒过稀（🟡），结论「需微调」。*
 

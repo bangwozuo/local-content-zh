@@ -7,7 +7,7 @@
 
 ![真实执行](docs/assets/run-terminal.png)
 
-🎬 **[▶ 观看演示视频](docs/assets/demo.mp4)** — 四幕数据叙事：业务钩子 → 真实执行 → 指标条形图生长 → 交付物
+🎬 **[▶ 观看演示视频（在线播放）](https://cdn.jsdelivr.net/gh/bangwozuo/local-content-zh@main/workflows/daily-hotspot-topic-flow/docs/assets/demo.mp4) · [GitHub 页](https://github.com/bangwozuo/local-content-zh/blob/main/workflows/daily-hotspot-topic-flow/docs/assets/demo.mp4)** — 四幕数据叙事：业务钩子 → 真实执行 → 指标条形图生长 → 交付物
 
 *上图来自真实执行（`python scripts/run_flow.py --demo`）：成都/火锅 6 条候选 → 入选 3 条（A 级 2 条优先），Top1「毛肚免费续到凌晨 2 点的老店」87.0 分，附钩子类型、时长预算与发布槽位。*
 
