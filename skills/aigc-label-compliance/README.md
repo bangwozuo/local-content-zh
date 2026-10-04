@@ -7,7 +7,7 @@
 
 ![输出预览](docs/assets/run-terminal.png)
 
-![演示视频](docs/assets/demo.mp4)
+🎬 **[▶ 观看演示视频](docs/assets/demo.mp4)** — 四幕检测叙事：业务钩子 → 真实执行 → 检查项逐条亮灯 → 交付物
 
 *上图是本技能对 `examples/input.json` 的实跑交付（`examples/output.md`）：96 字探店文案查出 9 项问题（红线 6 / 警告 1 / 提示 1），判定「打回重改」，并给出整改后放行路径 4 步。*
 

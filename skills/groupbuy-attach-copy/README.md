@@ -7,7 +7,7 @@
 
 ![输出预览](docs/assets/run-terminal.png)
 
-![演示视频](docs/assets/demo.mp4)
+🎬 **[▶ 观看演示视频](docs/assets/demo.mp4)** — 四幕检测叙事：业务钩子 → 真实执行 → 检查项逐条亮灯 → 交付物
 
 *上图是本技能对 `examples/input.json` 的实跑交付（`examples/output.md`）：标题 18 字达标，依据清单 4 项全部「可复核」，驳回风险提示 4 条。*
 

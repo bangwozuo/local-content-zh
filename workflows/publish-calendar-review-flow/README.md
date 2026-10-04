@@ -7,7 +7,7 @@
 
 ![真实执行](docs/assets/run-terminal.png)
 
-![演示视频](docs/assets/demo.mp4)
+🎬 **[▶ 观看演示视频](docs/assets/demo.mp4)** — 四幕流转叙事：业务钩子 → 真实执行 → 数据管线节点动画 → 交付物
 
 *上图来自真实执行（`python scripts/run_flow.py --demo`）：6 条内容 → 4 条入历、2 条被复审闸门拦下（pending/failed 不入历）、0 条槽位未排。*
 

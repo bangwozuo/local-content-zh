@@ -7,7 +7,7 @@
 
 ![输出预览](docs/assets/run-terminal.png)
 
-![演示视频](docs/assets/demo.mp4)
+🎬 **[▶ 观看演示视频](docs/assets/demo.mp4)** — 四幕创作叙事：业务钩子 → 真实执行 → 要点到成稿演变 → 交付物
 
 *上图是本技能对 `examples/input.json` 的实跑交付（`examples/output.md`）：60s 抖音原版扩出小红书 75s / 视频号 60s / B 站 2min40s 三版，6 项事实全部核对通过。*
 
