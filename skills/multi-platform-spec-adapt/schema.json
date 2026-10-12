@@ -4,26 +4,54 @@
   "type": "atomic",
   "input": {
     "type": "object",
-    "required": ["content_text", "source_platform", "facts"],
+    "required": [
+      "content_text",
+      "source_platform",
+      "facts"
+    ],
     "properties": {
-      "content_text": { "type": "string", "description": "原素材脚本/口播全文" },
-      "source_platform": { "type": "string", "description": "原平台（默认抖音）" },
-      "duration_s": { "type": "number", "description": "原时长秒，默认 60" },
+      "content_text": {
+        "type": "string",
+        "description": "原素材脚本/口播全文"
+      },
+      "source_platform": {
+        "type": "string",
+        "description": "原平台（默认抖音）"
+      },
+      "duration_s": {
+        "type": "number",
+        "description": "原时长秒，默认 60"
+      },
       "facts": {
         "type": "array",
-        "items": { "type": "string" },
+        "items": {
+          "type": "string"
+        },
         "description": "原素材事实清单（价格/菜名/地址/条款），改写保真核对用"
       },
       "targets": {
         "type": "array",
-        "items": { "type": "string", "enum": ["抖音", "小红书", "视频号", "B站"] },
+        "items": {
+          "type": "string",
+          "enum": [
+            "抖音",
+            "小红书",
+            "视频号",
+            "B站"
+          ]
+        },
         "description": "目标平台，默认全四平台"
       }
     }
   },
   "output": {
     "type": "object",
-    "required": ["matrix", "scripts_by_platform", "fact_check", "reshoot_list"],
+    "required": [
+      "matrix",
+      "scripts_by_platform",
+      "fact_check",
+      "reshoot_list"
+    ],
     "properties": {
       "matrix": {
         "type": "array",
@@ -39,22 +67,33 @@
         "items": {
           "type": "object",
           "properties": {
-            "事实": { "type": "string" },
-            "核对": { "type": "string" }
+            "事实": {
+              "type": "string"
+            },
+            "核对": {
+              "type": "string"
+            }
           }
         }
       },
       "reshoot_list": {
         "type": "array",
-        "items": { "type": "string" },
+        "items": {
+          "type": "string"
+        },
         "description": "需补拍/重剪清单（横屏安全框/封面 3:4/字幕位置）"
       }
     }
   },
   "constraints": {
     "max_input_length": 8000,
-    "forbidden_words": ["最好吃", "第一", "100%"],
+    "forbidden_words": [
+      "最好吃",
+      "第一",
+      "100%"
+    ],
     "ai_label_required": true,
-    "human_review_required": true
+    "human_review_required": true,
+    "external_api_required": false
   }
 }
