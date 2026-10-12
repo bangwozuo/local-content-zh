@@ -111,23 +111,23 @@ local-content-zh/
 
 ## 技能清单（5 个）
 
-| # | 技能 | 能力族 | 复杂度 | 提示词 | 文档 |
-|---|------|--------|--------|--------|------|
-| 1 | 短视频脚本生成 | 脚本与分镜生成 | `S` | [prompt.txt](skills/shortvideo-script-generate/prompt.txt) | [docs](skills/shortvideo-script-generate/docs/) |
-| 2 | 本地热点追踪 | 数据采集 | `M` | [prompt.txt](skills/local-hotspot-track/prompt.txt) | [docs](skills/local-hotspot-track/docs/) |
-| 3 | 团购挂载文案 | 脚本与分镜生成 | `S` | [prompt.txt](skills/groupbuy-attach-copy/prompt.txt) | [docs](skills/groupbuy-attach-copy/docs/) |
-| 4 | 多平台规格适配 | 改写与适配 | `S` | [prompt.txt](skills/multi-platform-spec-adapt/prompt.txt) | [docs](skills/multi-platform-spec-adapt/docs/) |
-| 5 | AIGC 标识合规 | 合规校验 | `S` | [prompt.txt](skills/aigc-label-compliance/prompt.txt) | [docs](skills/aigc-label-compliance/docs/) |
+| # | 技能 | 能力族 | 复杂度 | 说明文档 |
+|---|------|--------|--------|----------|
+| 1 | 短视频脚本生成 | 脚本与分镜生成 | `S` | [README](skills/shortvideo-script-generate/README.md) |
+| 2 | 本地热点追踪 | 数据采集 | `M` | [README](skills/local-hotspot-track/README.md) |
+| 3 | 团购挂载文案 | 脚本与分镜生成 | `S` | [README](skills/groupbuy-attach-copy/README.md) |
+| 4 | 多平台规格适配 | 改写与适配 | `S` | [README](skills/multi-platform-spec-adapt/README.md) |
+| 5 | AIGC 标识合规 | 合规校验 | `S` | [README](skills/aigc-label-compliance/README.md) |
 
 ## 工作流清单（5 条）
 
-| # | 工作流 | 阶段 | 复杂度 | 触发 | 定义 | 文档 |
-|---|--------|------|--------|------|------|------|
-| 1 | 每日热点选题 | `P0` | `S` | 定时（每日 7:00） | [SKILL.md](workflows/daily-hotspot-topic-flow/SKILL.md) | [docs](workflows/daily-hotspot-topic-flow/docs/) |
-| 2 | 探店脚本生成 | `P0` | `S` | 人工（老板投喂素材照片/语音描述） | [SKILL.md](workflows/storevisit-script-generate-flow/SKILL.md) | [docs](workflows/storevisit-script-generate-flow/docs/) |
-| 3 | 口播文案+分镜 | `P0` | `S` | 人工（随 W2 联动） | [SKILL.md](workflows/voiceover-storyboard-flow/SKILL.md) | [docs](workflows/voiceover-storyboard-flow/docs/) |
-| 4 | 封面标题生成 | `P0` | `S` | 人工 | [SKILL.md](workflows/cover-title-generate-flow/SKILL.md) | [docs](workflows/cover-title-generate-flow/docs/) |
-| 5 | 发布日历与复盘 | `P1` | `M` | 定时（每周一） | [SKILL.md](workflows/publish-calendar-review-flow/SKILL.md) | [docs](workflows/publish-calendar-review-flow/docs/) |
+| # | 工作流 | 阶段 | 复杂度 | 触发 | 说明文档 |
+|---|--------|------|--------|------|----------|
+| 1 | 每日热点选题 | `P0` | `S` | 定时（每日 7:00） | [README](workflows/daily-hotspot-topic-flow/README.md) |
+| 2 | 探店脚本生成 | `P0` | `S` | 人工（老板投喂素材照片/语音描述） | [README](workflows/storevisit-script-generate-flow/README.md) |
+| 3 | 口播文案+分镜 | `P0` | `S` | 人工（随 W2 联动） | [README](workflows/voiceover-storyboard-flow/README.md) |
+| 4 | 封面标题生成 | `P0` | `S` | 人工 | [README](workflows/cover-title-generate-flow/README.md) |
+| 5 | 发布日历与复盘 | `P1` | `M` | 定时（每周一） | [README](workflows/publish-calendar-review-flow/README.md) |
 
 ---
 
