@@ -11,8 +11,6 @@
 [![NoKey](https://img.shields.io/badge/API%20Key-not%20required-success)](#资产形态)
 [![License](https://img.shields.io/badge/license-Apache--2.0-green)](LICENSE)
 
-![仓演示](https://cdn.jsdelivr.net/gh/bangwozuo/local-content-zh@main/docs/demo.mp4)
-
 *上面 20 秒轮播本仓 5 个代表资产的真实执行截图：本地热点追踪（脚本实跑 8 条候选评分）、短视频脚本生成（296 字脚本 + 9 镜分镜）、探店脚本生成工作流（60s 配平 + 合规扫描）、每日热点选题工作流（6 选 3 选题卡）、口播文案+分镜工作流（语速/时间轴四道量化校验）。全部来自 `--run` 真实执行或实跑产物，非摆拍。*
 
 ---
@@ -56,7 +54,7 @@
 ## 快速开始
 
 ```text
-1. 从上方资产矩阵选一个资产，打开其 prompt.txt
+1. 从下方技能清单/工作流清单选一个资产，打开其 prompt.txt
 2. 全文复制
 3. 粘贴到你常用的 AI 工具（Coze / WorkBuddy / Dify / Claude / ChatGPT）
 4. 按 schema.json 的输入规格提供数据
